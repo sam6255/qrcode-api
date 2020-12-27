@@ -13,12 +13,4 @@ services:
     - ./configs:/qrcode/configs
     - ./logs:/qrcode/logs
     stop_grace_period: 30s
-
-  bot:
-    image: nanmu42/qrcode-api
-    command: ./qrcode-bot -config ./configs/bot.toml
-    hostname: bot
-    volumes:
-    - ./configs:/qrcode/configs
-    - ./logs:/qrcode/logs
-    stop_grace_period: 30s
+    restart: unless-stopped
